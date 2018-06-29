@@ -23,12 +23,15 @@ class Table
 
   def self.average(file)
   	table = build(file)
+	total = 0
+	puts 'averages'
   	table.each do |ele|
   	average = ele.recaudations.inject(&:+) /ele.recaudations.size.to_f
   		puts "#{ele.table_name}: #{average}"
+  		total += average
  	end 
-
-
+ 	total /= 4
+ 	puts "whit a total of: #{total}"
   end
 end
 
